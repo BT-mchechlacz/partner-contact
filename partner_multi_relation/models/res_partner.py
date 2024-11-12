@@ -4,7 +4,7 @@
 
 import numbers
 
-from odoo import _, api, exceptions, fields, models
+from odoo import api, exceptions, fields, models
 from odoo.osv.expression import FALSE_LEAF, OR, is_leaf
 
 
@@ -75,7 +75,7 @@ class ResPartner(models.Model):
         )
         if operator not in SUPPORTED_OPERATORS:
             raise exceptions.ValidationError(
-                _('Unsupported search operator "%s"') % operator
+                self.env._('Unsupported search operator "%s"') % operator
             )
         type_selection_model = self.env["res.partner.relation.type.selection"]
         relation_type_selection = []
